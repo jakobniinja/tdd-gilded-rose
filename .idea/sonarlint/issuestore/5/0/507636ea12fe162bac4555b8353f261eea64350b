@@ -1,7 +1,7 @@
 
-“
-java:S1104"PMake name a static final constant or non-public and provide accessors if needed.( şÍ¾8ÆâçŠí1J$af50c420-8a43-4d73-aec8-1e1efd2cb47a
-t
-java:S1104"RMake sellIn a static final constant or non-public and provide accessors if needed.(âİÅüúÿÿÿÿ8¨£éŠí1
+m
+java:S1104"PMake name a static final constant or non-public and provide accessors if needed.( şÍ¾8æÆ¶í1
+š
+java:S1104"RMake sellIn a static final constant or non-public and provide accessors if needed.(âİÅüúÿÿÿÿ8¨£éŠí1J$dfd2aee1-ce59-4b12-a419-355b8b343b58
 –
-java:S1104	"SMake quality a static final constant or non-public and provide accessors if needed.(·’¥ñ8•¸ãŠí1J$c7fd0e4e-d207-4c3b-ae12-5e0be3e7382f
+java:S1104	"SMake quality a static final constant or non-public and provide accessors if needed.(·’¥ñ8•¸ãŠí1J$a8349dcc-7c0b-44bc-b3e4-7b99b17f2115

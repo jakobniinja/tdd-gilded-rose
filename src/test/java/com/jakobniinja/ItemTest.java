@@ -1,38 +1,44 @@
 package com.jakobniinja;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class ItemTest {
 
-  @Test
-  void onInit() {
-    assertNotNull(new Item());
+  private Item item;
+
+  @BeforeEach
+  void setUp() {
+    item = new Item("Milk", 3, 1);
   }
 
   @Test
-  void onThreeArgumentConstructorName() {
-    Item item = new Item("Milk", 3, 1);
+  void onInitMilk() {
     assertEquals("Milk", item.name);
   }
 
   @Test
-  void onThreeArgumentConstructorSellIn() {
-    Item item = new Item("Milk", 3, 1);
+  void onInitSellIn() {
     assertEquals(3, item.sellIn);
   }
 
   @Test
-  void onThreeArgumentConstructor() {
-    Item item = new Item("Milk", 3, 1);
+  void onInitQuality() {
     assertEquals(1, item.quality);
   }
 
   @Test
-  void onToString() {
-    String item = new Item().toString();
-    assertEquals("Milk selling for 3$ in best quality", item);
+  void onSellInToString() {
+    assertEquals(1, item.quality);
+    assertEquals("Milk selling for 3$ in quality 1", item.toString());
+  }
+
+  @Test
+  void onQualityToString() {
+    Item item = new Item("Milk", 2, 1);
+    assertEquals(1, item.quality);
+    assertEquals("Milk selling for 2$ in quality 1", item.toString());
   }
 }

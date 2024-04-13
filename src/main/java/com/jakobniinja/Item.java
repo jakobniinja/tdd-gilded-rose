@@ -8,10 +8,6 @@ public class Item {
 
   public int quality;
 
-
-  public Item() {
-  }
-
   public Item(String name, int sellIn, int quality) {
     this.name = name;
     this.sellIn = sellIn;
@@ -20,6 +16,6 @@ public class Item {
 
   @Override
   public String toString() {
-    return "Milk selling for 3$ in best quality";
+    return name + " selling for " + sellIn + "$ in quality " + quality;
   }
 }
