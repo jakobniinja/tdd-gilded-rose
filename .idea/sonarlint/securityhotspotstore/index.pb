@@ -12,3 +12,7 @@ W
 +src/test/java/com/jakobniinja/ItemTest.java,0\c\0cb1cca896792ad46d4efafc9ef1a555f26c855d
 W
 'src/main/java/com/jakobniinja/Item.java,5\0\507636ea12fe162bac4555b8353f261eea64350b
+a
+1src/test/java/com/jakobniinja/GildedRoseTest.java,e\5\e5fa30d749ea492bf0742e87e70096e8a97ed77a
+]
+-src/main/java/com/jakobniinja/GildedRose.java,b\4\b4c80fd3e4f8d95c4fb9ea9f44577030f4773400
