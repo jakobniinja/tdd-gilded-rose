@@ -16,3 +16,5 @@ a
 1src/test/java/com/jakobniinja/GildedRoseTest.java,e\5\e5fa30d749ea492bf0742e87e70096e8a97ed77a
 ]
 -src/main/java/com/jakobniinja/GildedRose.java,b\4\b4c80fd3e4f8d95c4fb9ea9f44577030f4773400
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
