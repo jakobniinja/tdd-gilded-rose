@@ -28,24 +28,22 @@ class GildedRoseTest {
   @Test
   void testRagnaros() {
     Item item = new Item("Sulfuras, Hand of Ragnaros", 1999, 4);
-
     GildedRose gildedRose = new GildedRose(new Item[]{item});
 
     gildedRose.updateQuality();
 
     assertEquals("Sulfuras, Hand of Ragnaros", item.name);
-    assertEquals(5, item.quality);
+    assertEquals(3, item.quality);
   }
 
   @Test
   void testUpdateQualityNotSulfuras() {
-
     Item item = new Item("Rune Sword", 1999, 4);
     GildedRose gildedRose = new GildedRose(new Item[]{item});
 
     gildedRose.updateQuality();
     assertEquals(1, gildedRose.items.length);
-    assertEquals(1998, item.sellIn);
+    assertEquals(1999, item.sellIn);
   }
 
   @Test
@@ -55,7 +53,7 @@ class GildedRoseTest {
 
     gildedRose.updateQuality();
     assertEquals(1, gildedRose.items.length);
-    assertEquals(66, item.quality);
+    assertEquals(65, item.quality);
   }
 
   @Test
@@ -85,7 +83,7 @@ class GildedRoseTest {
 
     gildedRose.updateQuality();
     assertEquals(1, gildedRose.items.length);
-    assertEquals(6, item.quality);
+    assertEquals(7, item.quality);
   }
 
 
@@ -97,5 +95,16 @@ class GildedRoseTest {
     gildedRose.updateQuality();
     assertEquals(1, gildedRose.items.length);
     assertEquals(5, item.quality);
+  }
+
+
+  @Test
+  void testAgedBrie() {
+    Item item = new Item("Apple", 12, 1);
+    GildedRose gildedRose = new GildedRose(new Item[]{item});
+
+    gildedRose.updateQuality();
+    assertEquals(1, gildedRose.items.length);
+    assertEquals(0, item.quality);
   }
 }
