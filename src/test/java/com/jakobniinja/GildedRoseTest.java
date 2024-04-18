@@ -21,18 +21,7 @@ class GildedRoseTest {
     item = new Item("Rune Sword", 1999, -1);
     gildedRose = new GildedRose(new Item[]{item});
     gildedRose.updateQuality();
-    assertItemQuality(-1);
-  }
-
-  @Test
-  void testRagnaros() {
-    item = new Item("Sulfuras, Hand of Ragnaros", 1999, 4);
-    gildedRose = new GildedRose(new Item[]{item});
-
-    gildedRose.updateQuality();
-
-    assertEquals("Sulfuras, Hand of Ragnaros", item.name);
-    assertItemQuality(3);
+    assertItemQuality(-2);
   }
 
   @Test
@@ -41,9 +30,8 @@ class GildedRoseTest {
     gildedRose = new GildedRose(new Item[]{item});
 
     gildedRose.updateQuality();
-    assertItemQuality(5);
+    assertItemQuality(4);
   }
-
 
   @Test
   void testLessThan6() {
@@ -51,7 +39,7 @@ class GildedRoseTest {
     gildedRose = new GildedRose(new Item[]{item});
 
     gildedRose.updateQuality();
-    assertItemQuality(7);
+    assertItemQuality(6);
   }
 
   @Test
@@ -60,7 +48,27 @@ class GildedRoseTest {
     gildedRose = new GildedRose(new Item[]{item});
 
     gildedRose.updateQuality();
-    assertItemQuality(2);
+    assertItemQuality(1);
+  }
+
+  @Test
+  void testSulfuras() {
+    item = new Item("Sulfuras, Hand of Ragnaros", 12, 1);
+    gildedRose = new GildedRose(new Item[]{item});
+
+    gildedRose.updateQuality();
+    assertEquals("Sulfuras, Hand of Ragnaros", item.name);
+    assertItemQuality(1);
+  }
+
+
+  @Test
+  void testNotSulfuras() {
+    item = new Item("Onion", 12, 1);
+    gildedRose = new GildedRose(new Item[]{item});
+
+    gildedRose.updateQuality();
+    assertItemQuality(-1);
   }
 
   @Test
@@ -69,7 +77,17 @@ class GildedRoseTest {
     gildedRose = new GildedRose(new Item[]{item});
 
     gildedRose.updateQuality();
-    assertItemQuality(100);
+    assertItemQuality(99);
+  }
+
+  @Test
+  void testNotRagnaros() {
+    item = new Item("Steel hammer", 100, -20);
+    gildedRose = new GildedRose(new Item[]{item});
+    gildedRose.updateQuality();
+
+    assertItemQuality(-21);
+    assertEquals("Steel hammer", item.name);
   }
 
   private void assertItemQuality(int expectedQuality) {
