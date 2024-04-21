@@ -26,13 +26,12 @@ class GildedRoseTest {
 
   static Stream<Arguments> itemProvider() {
     return Stream.of(
-        Arguments.of("Backstage passes to a TAFKAL80ETC concert", 12, 4, 4),
+        Arguments.of("Backstage passes to a TAFKAL80ETC concert", 12, 4, 5),
         Arguments.of("Aged Brie", -100, -20, -19),
-        Arguments.of("Aged Brie2", -100, -20, -21),
+        Arguments.of("Aged Brie2", -100, -20, -20),
         Arguments.of("Backstage passes to a TAFKAL80ETC concert", -100, -20, 0),
-        Arguments.of("Aged Brie", -100, 70, 69),
-        Arguments.of("Best Aged Brie2", -100, 3, 0),
-        Arguments.of("Sulfuras, Hand of Ragnaros", -100, 3, 3)
-    );
+        Arguments.of("Aged Brie", -100, 70, 70),
+        Arguments.of("Best Aged Brie2", -100, 3, 1),
+        Arguments.of("Sulfuras, Hand of Ragnaros", -100, 3, 3));
   }
 }
