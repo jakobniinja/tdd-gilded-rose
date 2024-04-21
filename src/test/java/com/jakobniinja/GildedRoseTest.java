@@ -3,65 +3,36 @@ package com.jakobniinja;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 class GildedRoseTest {
-
-  private GildedRose gildedRose;
-
-  private Item item;
 
   @Test
   void testInit() {
     assertNotNull(new GildedRose());
   }
 
-  @Test
-  void testLessThan50() {
-    item = new Item("Backstage passes to a TAFKAL80ETC concert", 12, 4);
-    assertItemQuality(4);
-  }
-
-  @Test
-  void testSellInNegative() {
-    item = new Item("Aged Brie", -100, -20);
-    assertItemQuality(-19);
-  }
-
-  @Test
-  void testSellInMismatchName() {
-    item = new Item("Aged Brie2", -100, -20);
-    assertItemQuality(-21);
-  }
-
-  @Test
-  void testSellInMismatchBackstage() {
-    item = new Item("Backstage passes to a TAFKAL80ETC concert", -100, -20);
-    assertItemQuality(0);
-  }
-
-  @Test
-  void testSellInNegativeGreater() {
-    item = new Item("Aged Brie", -100, 70);
-    assertItemQuality(69);
-  }
-
-  private void assertItemQuality(int expectedQuality) {
-    gildedRose = new GildedRose(new Item[]{item});
+  @ParameterizedTest
+  @MethodSource("itemProvider")
+  void testItemQuality(String itemName, int sellIn, int quality, int expectedQuality) {
+    GildedRose gildedRose = new GildedRose(new Item[]{new Item(itemName, sellIn, quality)});
     gildedRose.updateQuality();
-    assertEquals(1, gildedRose.items.length);
-    assertEquals(expectedQuality, item.quality);
+    assertEquals(expectedQuality, gildedRose.items[0].quality);
   }
 
-  @Test
-  void testSellInQuality() {
-    item = new Item("Best Aged Brie2", -100, 3);
-    assertItemQuality(0);
-  }
-
-  @Test
-  void testSellInQualitySulfuras() {
-    item = new Item("Sulfuras, Hand of Ragnaros", -100, 3);
-    assertItemQuality(3);
+  static Stream<Arguments> itemProvider() {
+    return Stream.of(
+        Arguments.of("Backstage passes to a TAFKAL80ETC concert", 12, 4, 4),
+        Arguments.of("Aged Brie", -100, -20, -19),
+        Arguments.of("Aged Brie2", -100, -20, -21),
+        Arguments.of("Backstage passes to a TAFKAL80ETC concert", -100, -20, 0),
+        Arguments.of("Aged Brie", -100, 70, 69),
+        Arguments.of("Best Aged Brie2", -100, 3, 0),
+        Arguments.of("Sulfuras, Hand of Ragnaros", -100, 3, 3)
+    );
   }
 }
